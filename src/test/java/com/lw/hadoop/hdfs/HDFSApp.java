@@ -41,6 +41,7 @@ public class HDFSApp {
     public void setUp() throws Exception {
         configuration = new Configuration();
         fileSystem = FileSystem.get(new URI(HDFS_PATH), configuration);
+        System.out.println("BEFORE end");
     }
 
     @After
