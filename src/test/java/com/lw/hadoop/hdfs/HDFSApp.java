@@ -23,13 +23,13 @@ public class HDFSApp {
 
     @Test
     public void mkdir() throws Exception {
-        fileSystem.mkdirs(new Path("/HDFSApi/test"));
+        fileSystem.mkdirs(new Path("/HDFSApi"));
     }
 
     @Test
     public void createFile() throws Exception {
-        FSDataOutputStream fsDataOutputStream = fileSystem.create(new Path("/HDFSApi/test/kk.txt"));
-        fsDataOutputStream.write("hello hadoooooop".getBytes());
+        FSDataOutputStream fsDataOutputStream = fileSystem.create(new Path("/HDFSApi/aa.txt"));
+        fsDataOutputStream.write("hello hadoooop".getBytes());
         fsDataOutputStream.flush();
         fsDataOutputStream.close();
     }
@@ -40,7 +40,7 @@ public class HDFSApp {
     @Before
     public void setUp() throws Exception {
         configuration = new Configuration();
-        fileSystem = FileSystem.get(new URI(HDFS_PATH), configuration);
+        fileSystem = FileSystem.get(new URI(HDFS_PATH), configuration,"luowen");//这是hdfs系统的用户名
         System.out.println("BEFORE end");
     }
 
