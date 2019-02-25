@@ -1,9 +1,11 @@
 package com.lw.hadoop.hdfs;
 
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.FSDataInputStream;
 import org.apache.hadoop.fs.FSDataOutputStream;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.IOUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -32,6 +34,20 @@ public class HDFSApp {
         fsDataOutputStream.write("hello hadoooop1".getBytes());
         fsDataOutputStream.flush();
         fsDataOutputStream.close();
+    }
+
+    @Test
+    public void cat()throws Exception{
+        FSDataInputStream open = fileSystem.open(new Path("/HDFSApi/aa.txt"));
+        IOUtils.copyBytes(open,System.out,1024);
+        open.close();
+    }
+
+    @Test
+    public void rename() throws Exception{
+        Path res= new Path("/HDFSApi/aa.txt");
+        Path tar= new Path("/HDFSApi/bb.txt");
+        fileSystem.rename(res,tar);
     }
 
 
