@@ -19,6 +19,7 @@
         <hadoop.version>2.6.0-cdh5.7.0</hadoop.version>
     </properties>
 
+    <!--添加cdh版本的仓库-->
     <repositories>
         <repository>
             <id>cloudera</id>
