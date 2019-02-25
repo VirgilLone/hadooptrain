@@ -29,7 +29,7 @@ public class HDFSApp {
     @Test
     public void createFile() throws Exception {
         FSDataOutputStream fsDataOutputStream = fileSystem.create(new Path("/HDFSApi/aa.txt"));
-        fsDataOutputStream.write("hello hadooooptest2".getBytes());
+        fsDataOutputStream.write("hello hadoooop".getBytes());
         fsDataOutputStream.flush();
         fsDataOutputStream.close();
     }
